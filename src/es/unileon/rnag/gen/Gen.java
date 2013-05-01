@@ -13,18 +13,14 @@ public abstract class Gen {
 	 * Genetic type of this gen.
 	 */
 	protected GeneticType geneticType;
-	
-	/**
-	 * Changes the value of this gen.
-	 */
-	public abstract void mutate();
+
 	/**
 	 * Returns the value of this gen.
 	 * @return A string containing this value.
 	 */
 	public abstract String getValue();
 	/**
-	 * Returns the tupe of this gen.
+	 * Returns the type of this gen.
 	 * @return The type of this gen.
 	 */
 	public GeneticType getGeneticType(){

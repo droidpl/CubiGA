@@ -1,0 +1,8 @@
+es.unileon.rnag
+es.unileon.rnag.chromosome
+es.unileon.rnag.datatypes
+es.unileon.rnag.gen
+es.unileon.rnag.operator
+es.unileon.rnag.operator.crossover
+es.unileon.rnag.operator.selection
+es.unileon.rnag.oprerator.mutation

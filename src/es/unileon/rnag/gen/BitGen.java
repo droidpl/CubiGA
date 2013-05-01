@@ -2,8 +2,16 @@ package es.unileon.rnag.gen;
 
 import es.unileon.rnag.datatypes.GeneticType;
 
+/**
+ * The bit gen representation.
+ * @author Javier de Pedro Lopez
+ * @author Adrian Casimiro Alvarez
+ */
 public class BitGen extends Gen {
 	
+	/**
+	 * Boolean value of the bit gen. Active = 1 = true and inactive = 0 = false
+	 */
 	private boolean value;
 	
 	/**
@@ -15,11 +23,7 @@ public class BitGen extends Gen {
 		this.value = value;
 		this.geneticType = type;
 	}
-	@Override
-	public void mutate() {
-		value = !value;
-	}
-
+	
 	@Override
 	public String getValue() {
 		String genValue = this.value ?  "1" : "0";

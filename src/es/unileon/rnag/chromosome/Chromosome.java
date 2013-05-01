@@ -53,6 +53,12 @@ public abstract class Chromosome {
 	public abstract int length();
 	
 	/**
+	 * Mutates the value of the given gen
+	 * @param index The index of the gen that will be mutated.
+	 */
+	public abstract void mutateGen(int index);
+	
+	/**
 	 * The gen that is present in an index
 	 * @param index The position of the gen
 	 * @return The gen on a position
@@ -62,7 +68,7 @@ public abstract class Chromosome {
 	/**
 	 * Adds a new gen to a given position
 	 * @param gen The gent that will be added
-	 * @param index The position of the gen. Must be in range.
+	 * @param index The position of the gen. Must be in range
 	 */
 	public abstract void setGen(Gen gen, int index);
 	

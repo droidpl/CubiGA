@@ -18,7 +18,7 @@ public class SelectionFactory {
 	/**
 	 * Method that generate the SelectionStrategy
 	 * @param selectionType Enumeration type that specify the SelectionStrategy to be created
-	 * @return
+	 * @return The strategy
 	 */
 	public SelectionStrategy makeSelectionStrategy(SelectionType selectionType){
 		SelectionStrategy selectionStrategy = null;

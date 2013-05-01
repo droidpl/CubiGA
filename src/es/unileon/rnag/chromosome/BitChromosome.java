@@ -40,6 +40,12 @@ public class BitChromosome extends Chromosome {
 	public int length() {
 		return this.chromosome.length();
 	}
+	
+	@Override
+	public void mutateGen(int index) {
+		if (index > this.chromosome.length() || index < 0) throw new RuntimeException("The index passed is out of bounds");
+		this.chromosome.set(index, Boolean.valueOf(this.geneticType.generateGen(index).getValue()));
+	}
 
 	@Override
 	public Gen getGen(int index) {

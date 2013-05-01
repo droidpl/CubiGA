@@ -23,7 +23,7 @@ public class RangeChromosome extends Chromosome {
 	
 	/**
 	 * Constructor of the range chromosome
-	 * @param values The values of the genes
+	 * @param ranges The values of the genes
 	 * @param type The genetic type generator
 	 */
 	public RangeChromosome(Range[] ranges, GeneticType type){
@@ -43,6 +43,16 @@ public class RangeChromosome extends Chromosome {
 		return this.chromosome.length;
 	}
 
+	@Override
+	public void mutateGen(int index) {
+		if (index > this.chromosome.length || index < 0) throw new RuntimeException("The index passed is out of bounds");
+		try{
+			this.chromosome[index] = Integer.valueOf(this.geneticType.generateGen(index).getValue());
+		}catch(NumberFormatException ex){
+			throw new RuntimeException("One of the chromosomes in range vector belongs to another type. Only one type per algorithm is supported");
+		}
+	}
+	
 	@Override
 	public Gen getGen(int index) {
 		if (index > this.chromosome.length || index < 0) throw new RuntimeException("The index passed is out of bounds");

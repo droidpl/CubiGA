@@ -24,12 +24,6 @@ public class RangeGen extends Gen {
 		this.value = value;
 		this.geneticType = type;
 	}
-	
-	@Override
-	public void mutate() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public String getValue() {
