@@ -3,7 +3,7 @@ package es.unileon.rnag.operator.selection;
 /**
  * Class that generate a SelectionStrategy
  * @author Adrian Casimiro Alvarez
- * @author Javier de Pedro López
+ * @author Javier de Pedro Lopez
  */
 public class SelectionFactory {
 	/**
