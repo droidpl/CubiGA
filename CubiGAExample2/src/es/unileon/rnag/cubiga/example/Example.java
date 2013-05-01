@@ -16,10 +16,10 @@ import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory.MutationType;
  * @author Javier de Pedro Lopez
  */
 public class Example {
-	private static final Double CROSSOVER_PROBABILITY = 0.7;
+	private static final Double CROSSOVER_PROBABILITY = 0.5;
 	private static final Double MUTATION_PROBABILITY = 0.05;
-	private static final int POPULATION = 10;
-	private static final int NUMBER_OF_GENERATIONS = 100;
+	private static final int POPULATION = 30;
+	private static final int NUMBER_OF_GENERATIONS = 1000;
 	
 	/**
 	 * Executes the genetic algorithm
@@ -30,7 +30,7 @@ public class Example {
 		FitnessStop fitnessStop = new FitnessStop();
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, fitnessStop, fitnessStop);
 		
-		BitVector bitVector = new BitVector(100);
+		BitVector bitVector = new BitVector(20);
 		
 		geneticAlgorithm.initialize(POPULATION, bitVector, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
 		

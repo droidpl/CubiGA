@@ -10,12 +10,11 @@ import es.unileon.rnag.cubiga.chromosome.Chromosome;
  * @author Javier de Pedro Lopez
  */
 public class TournamentSelection extends SelectionStrategy{
-	private static final float PROPORTION_ELEMENTS_TO_COMPARE = 1/10;
+	private static final float PROPORTION_ELEMENTS_TO_COMPARE = 0.1f;
 	
 	@Override
 	public Chromosome[] doSelection(Chromosome[] previousGeneration) {
 		Chromosome[] newGeneration = new Chromosome[previousGeneration.length];
-		
 		int tournamentParticipantsNumber = (int) (previousGeneration.length * PROPORTION_ELEMENTS_TO_COMPARE);
 		if(tournamentParticipantsNumber < 2) tournamentParticipantsNumber = 2;
 		Chromosome[] tournamentParticipants = new Chromosome[tournamentParticipantsNumber];

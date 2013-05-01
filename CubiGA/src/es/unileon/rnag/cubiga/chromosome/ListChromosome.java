@@ -77,7 +77,8 @@ public class ListChromosome extends Chromosome {
 
 	@Override
 	public void setChromosomeSlice(Gen[] chromosomeSlice, int initIndex) {
-		for (int i = initIndex; i < chromosomeSlice.length; i++){
+		if(initIndex + chromosomeSlice.length > chromosome.length) throw new RuntimeException("The selected slice does not fit in the position of the chromosome");
+		for (int i = initIndex; i < initIndex + chromosomeSlice.length; i++){
 			this.chromosome[i] = chromosomeSlice[i - initIndex].getValue();
 		}
 	}
