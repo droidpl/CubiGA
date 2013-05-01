@@ -80,7 +80,7 @@ public class RangeChromosome extends Chromosome {
 
 	@Override
 	public Gen[] getChromosomeSlice(int initIndex, int length) {
-		if (initIndex + length < this.chromosome.length) throw new RuntimeException("Index to be retrieved for this chromosome is out of bounds");
+		if (initIndex + length > this.chromosome.length) throw new RuntimeException("Index to be retrieved for this chromosome is out of bounds");
 		Gen[] genArray = new Gen[length];
 		for (int i = initIndex; i < initIndex + length; i++){
 			genArray[i - initIndex] = new RangeGen(this.chromosome[i], this.geneticType);

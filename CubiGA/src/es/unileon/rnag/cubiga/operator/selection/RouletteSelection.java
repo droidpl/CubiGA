@@ -26,7 +26,7 @@ public class RouletteSelection extends SelectionStrategy{
 			probability = previousGeneration[i].getFitness() / total;
 			totalCells = (int) (probability * 100);
 			for(int j=0; j<totalCells; j++){
-				roulette[j+actualPosition] = i;
+				roulette[j + actualPosition] = i;
 			}
 			actualPosition = actualPosition + totalCells;
 		}

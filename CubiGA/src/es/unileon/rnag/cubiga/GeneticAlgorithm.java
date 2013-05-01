@@ -256,7 +256,9 @@ public class GeneticAlgorithm {
 	 * @param chromosome the chromosome
 	 */
 	private void assignFitness(Chromosome chromosome){
-		chromosome.setFitness(this.fitnessOperator.fitnessFunction(chromosome, this));
+		double fitness = this.fitnessOperator.fitnessFunction(chromosome, this);
+		if (fitness < 0) throw new RuntimeException("Fitness value must not be negative");
+		chromosome.setFitness(fitness);
 	}
 	
 	/**

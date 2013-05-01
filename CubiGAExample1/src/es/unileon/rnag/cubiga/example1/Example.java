@@ -47,7 +47,7 @@ public class Example {
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(strategy, operators, operators);
 		//Initialize the algorithm
 		GeneticType geneticType = new RangeVector(
-					new Range(-4, 4),
+					new Range(2, 100),
 					new Range(-2, 2)
 				);
 		geneticAlgorithm.initialize(POPULATION_SIZE, geneticType, NUMBER_OF_GENERATIONS, CROSSOVER_PROB, MUTATIONS_PROB);
