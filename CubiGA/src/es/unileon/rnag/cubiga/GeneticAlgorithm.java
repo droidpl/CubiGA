@@ -141,17 +141,7 @@ public class GeneticAlgorithm {
 		//First generation initialization
 		firstGenerationInitialization();
 		//GA loop
-		System.out.print("Evolving");
-		int countToPrint = 0;
 		while (this.stopOperator.mustContinue(this) && this.generationIndex < this.numberOfGenerations){
-			countToPrint++;
-			if(countToPrint%100 == 0){
-				System.out.print(".");
-				if(countToPrint == 10000) {
-					countToPrint = 0;
-					System.out.println();
-				}
-			}
 			//Do selection
 			this.population = this.geneticStrategy.doSelection(this.population);
 			/*Loop
@@ -176,7 +166,6 @@ public class GeneticAlgorithm {
 			checkFittest();
 			this.generationIndex++;
 		}
-		System.out.println("\n\n\n");
 		this.runned = true;
 	}
 	
