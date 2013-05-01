@@ -26,8 +26,13 @@ public class BitGen extends Gen {
 	
 	@Override
 	public String getValue() {
+		String genValue = this.value ?  "true" : "false";
+		return genValue;
+	}
+	
+	@Override
+	public String toString(){
 		String genValue = this.value ?  "1" : "0";
 		return genValue;
 	}
-
 }

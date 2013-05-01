@@ -1,8 +1,8 @@
-es.unileon.rnag
-es.unileon.rnag.chromosome
-es.unileon.rnag.datatypes
-es.unileon.rnag.gen
-es.unileon.rnag.operator
-es.unileon.rnag.operator.crossover
-es.unileon.rnag.operator.selection
-es.unileon.rnag.oprerator.mutation
+es.unileon.rnag.cubiga
+es.unileon.rnag.cubiga.chromosome
+es.unileon.rnag.cubiga.datatypes
+es.unileon.rnag.cubiga.gen
+es.unileon.rnag.cubiga.operator
+es.unileon.rnag.cubiga.operator.crossover
+es.unileon.rnag.cubiga.operator.selection
+es.unileon.rnag.cubiga.oprerator.mutation

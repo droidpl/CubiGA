@@ -17,15 +17,47 @@ import es.unileon.rnag.cubiga.operator.crossover.CrossoverElement;
  * @version 1.0
  */
 public class GeneticAlgorithm {
+	/**
+	 * The strategy that will be used. Includes selection, crossover and mutation
+	 */
 	private GeneticStrategy geneticStrategy;
+	/**
+	 * Operator that checks if the algorithm must stop. It is an external operator that must be implemented
+	 * by the user.
+	 */
 	private StopOperator stopOperator;
+	/**
+	 * The fitness operator of the algorithm. It is an external operator that must be implemented
+	 * by the user.
+	 */
 	private FitnessOperator fitnessOperator;
+	/**
+	 * The size of the population. It means the number of chromosomes on each generation.
+	 */
 	private int populationSize;
+	/**
+	 * The population chromosomes used on the algorithm
+	 */
 	private Chromosome[] population;
+	/**
+	 * The best chromosome obtained on all the process
+	 */
 	private Chromosome fittest;
+	/**
+	 * The genetic type of the algorithm. It tells to the algorithm which is the datatype
+	 */
 	private GeneticType geneticType;
+	/**
+	 * Index that tells what is the current generation
+	 */
 	private int generationIndex;
+	/**
+	 * Number of generations
+	 */
 	private int numberOfGenerations;
+	/**
+	 * True if the algorithm has been runned
+	 */
 	private boolean runned;
 	
 	/**
@@ -166,7 +198,7 @@ public class GeneticAlgorithm {
 	 * @param numberOfGenerations The number of generations to establish. It must be greater or equal than 1
 	 */
 	public void setNumberOfGenerations(int numberOfGenerations){
-		if (numberOfGenerations < 1) throw new RuntimeException("The minium number of generations must be 1. Assigned: " + numberOfGenerations);
+		if (numberOfGenerations < 1 || numberOfGenerations < this.generationIndex) throw new RuntimeException("The minium number of generations must be 1 and lower greater than the current generation. Assigned: " + numberOfGenerations);
 		this.numberOfGenerations = numberOfGenerations;
 	}
 	
@@ -191,13 +223,17 @@ public class GeneticAlgorithm {
 	 * @param populationSize The size the population will have
 	 * @param type Data type of the genes and chromosomes inside the genetic algorithm
 	 * @param numberOfGenerations The number of generations that ill be executed
+	 * @param crossoverProbability The crossover probability
+	 * @param mutationProbability The mutation probability
 	 */
-	public void initialize(int populationSize, GeneticType type, int numberOfGenerations){
+	public void initialize(int populationSize, GeneticType type, int numberOfGenerations, double crossoverProbability, double mutationProbability){
 		if (this.runned) throw new RuntimeException("This genetic algorithm has been executed. Please create a new instance and run it with new parameters");
 		if (populationSize < 1 || type == null || numberOfGenerations < 1) throw new RuntimeException("Bad parameter initialization");
 		this.populationSize = populationSize;
 		this.geneticType = type;
 		this.numberOfGenerations = numberOfGenerations;
+		setCrossoverProbability(crossoverProbability);
+		setMutationProbability(mutationProbability);
 	}
 	
 	/**
