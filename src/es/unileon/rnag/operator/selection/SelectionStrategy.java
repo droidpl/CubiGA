@@ -3,7 +3,7 @@ package es.unileon.rnag.operator.selection;
 import es.unileon.rnag.chromosome.Chromosome;
 
 /**
- * Class that encapsulate all the selectionStrategies
+ * Abstract class that encapsulate all the selection strategies
  * @author Adrian Casimiro Álvarez
  * @author Javier de Pedro López
  *

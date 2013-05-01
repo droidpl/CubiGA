@@ -40,7 +40,7 @@ public class TournamentSelection extends SelectionStrategy{
 	private Chromosome fight(Chromosome[] tournamentParticipants){
 		Chromosome bestChromosome = tournamentParticipants[0];
 		for(int i=1; i<tournamentParticipants.length; i++){
-			if(bestChromosome.getFitness() < tournamentParticipants[i].getFitness()) bestChromosome = tournamentParticipants[i];
+			if(bestChromosome.compareTo(tournamentParticipants[i]) == -1) bestChromosome = tournamentParticipants[i];
 		}
 		return bestChromosome;
 	}

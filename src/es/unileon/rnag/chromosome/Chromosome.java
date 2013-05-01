@@ -49,7 +49,7 @@ public abstract class Chromosome implements Comparable<Chromosome>{
 	/**
 	 * Compares two different chromosomes
 	 * @param chromosome The chromosome to compare
-	 * @return Value 1 if the chromosome has greater fitness than other, -1 y it is lower 
+	 * @return Value 1 if the chromosome has greater fitness than other, -1 if it is lower 
 	 * and 0 for equal fitness on chromosomes
 	 */
 	public int compareTo(Chromosome chromosome){
