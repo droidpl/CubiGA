@@ -14,5 +14,5 @@ public interface StopOperator {
 	 * @param algorithm the current genetic algorithm.
 	 * @return False if the algorithm must stop or true if it must continue.
 	 */
-	public boolean stopCondition(GeneticAlgorithm algorithm);
+	public boolean mustContinue(GeneticAlgorithm algorithm);
 }

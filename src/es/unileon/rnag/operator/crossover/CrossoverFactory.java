@@ -17,7 +17,7 @@ public class CrossoverFactory {
 	
 	/**
 	 * Method that generate the CrossoverStrategy
-	 * @param selectionType Enumeration type that specify the CrossoverStrategy to be created
+	 * @param crossoverType Enumeration type that specify the CrossoverStrategy to be created
 	 * @return the strategy
 	 */
 	public CrossoverStrategy makeCrossoverStrategy(CrossoverType crossoverType){

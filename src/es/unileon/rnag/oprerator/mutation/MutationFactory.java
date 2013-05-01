@@ -17,7 +17,7 @@ public class MutationFactory {
 	
 	/**
 	 * Method that generate the MutationStrategy
-	 * @param selectionType Enumeration type that specify the SelectionStrategy to be created
+	 * @param mutationType Enumeration type that specify the SelectionStrategy to be created
 	 * @return The strategy
 	 */
 	public MutationStrategy makeMutationStrategy(MutationType mutationType){
