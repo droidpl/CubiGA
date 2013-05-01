@@ -30,13 +30,13 @@ public class Example {
 		FitnessStop fitnessStop = new FitnessStop();
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, fitnessStop, fitnessStop);
 		
-		BitVector bitVector = new BitVector(100000);
+		BitVector bitVector = new BitVector(100);
 		
 		geneticAlgorithm.initialize(POPULATION, bitVector, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
 		
 		geneticAlgorithm.evolve();
 		
-		System.out.println(geneticAlgorithm.getFittest() + " // With probability: " + geneticAlgorithm.getFittest().getFitness());
+		System.out.println("Chromosome: " + geneticAlgorithm.getFittest() + " \nFitness: " + geneticAlgorithm.getFittest().getFitness());
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class Example {
 			boolean result = false;
 			Chromosome chromosoma = algorithm.getFittest();
 			for(int i=0; i<chromosoma.length(); i++){
-				if(Integer.parseInt(chromosoma.getGen(i).getValue()) == 0){
+				if(Integer.parseInt(chromosoma.getGen(i).toString()) == 0){
 					result = true;
 					break;
 				}
@@ -64,9 +64,8 @@ public class Example {
 				GeneticAlgorithm algorithm) {
 			//The fittest has more bits to 1
 			double result = 0;
-			Chromosome chromosoma = algorithm.getFittest();
-			for(int i=0; i<chromosoma.length(); i++){
-				if(Integer.parseInt(chromosoma.getGen(i).getValue()) == 1){
+			for(int i=0; i<chromosome.length(); i++){
+				if(Integer.parseInt(chromosome.getGen(i).toString()) == 1){
 					result++;
 				}
 			}

@@ -89,7 +89,7 @@ public class BitChromosome extends Chromosome {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < this.chromosome.length(); i++){
-			builder.append(this.chromosome.get(i)? "1 " : "0 ");
+			builder.append(this.chromosome.get(i)? "1" : "0");
 		}
 		return builder.toString();
 	}

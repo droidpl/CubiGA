@@ -31,8 +31,8 @@ public class TwoPoint extends CrossoverStrategy{
 				secondPosition = aux;
 			}
 			
-			Gen[] sliceFirstChromosome = firstChromosome.getChromosomeSlice(firstPosition, secondPosition);
-			Gen[] sliceSecondChromosome = secondChromosome.getChromosomeSlice(firstPosition, secondPosition);
+			Gen[] sliceFirstChromosome = firstChromosome.getChromosomeSlice(firstPosition, secondPosition - firstPosition);
+			Gen[] sliceSecondChromosome = secondChromosome.getChromosomeSlice(firstPosition, secondPosition - firstPosition);
 			
 			firstChromosome.setChromosomeSlice(sliceSecondChromosome, firstPosition);
 			secondChromosome.setChromosomeSlice(sliceFirstChromosome, firstPosition);
