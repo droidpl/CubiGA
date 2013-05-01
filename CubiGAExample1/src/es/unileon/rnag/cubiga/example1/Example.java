@@ -14,7 +14,7 @@ import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory.MutationType;
 
 /**
  * Range vector genetic algorithm example. It calculates the maximun of the function x + y^2
- * on the interval x = [-4,4] y = [-2,2]
+ * on the interval x = [2,10] two decimals y = [2,20] two decimals
  * @author Javier de Pedro Lopez
  * @author Adrian Casimiro Alvarez
  */
@@ -23,11 +23,11 @@ public class Example {
 	/**
 	 * Population size of the algorithm.
 	 */
-	private static final int POPULATION_SIZE = 11;
+	private static final int POPULATION_SIZE = 30;
 	/**
 	 * The number of generations in the algorithm.
 	 */
-	private static final int NUMBER_OF_GENERATIONS = 30;
+	private static final int NUMBER_OF_GENERATIONS = 80;
 	/**
 	 * The crossover probability.
 	 */
@@ -36,6 +36,10 @@ public class Example {
 	 * The mutation probability.
 	 */
 	private static final double MUTATIONS_PROB = 0.02;
+	/**
+	 * The number of decimals.
+	 */
+	private static final int NUMBER_OF_DECIMALS = 2;
 	
 	/**
 	 * Executes the genetic algorithm
@@ -46,15 +50,20 @@ public class Example {
 		Operators operators = new Operators();
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(strategy, operators, operators);
 		//Initialize the algorithm
+		int decimals = (int) Math.pow(10, NUMBER_OF_DECIMALS);
 		GeneticType geneticType = new RangeVector(
-					new Range(2, 100),
-					new Range(-2, 2)
+					new Range(2 * decimals, 10 * decimals),
+					new Range(2 * decimals, 20 * decimals)
 				);
 		geneticAlgorithm.initialize(POPULATION_SIZE, geneticType, NUMBER_OF_GENERATIONS, CROSSOVER_PROB, MUTATIONS_PROB);
 		//Execute the algorithm
 		geneticAlgorithm.evolve();
 		//Printing results
-		System.out.println("Best Chromosome found for x + y^2: " + geneticAlgorithm.getFittest());
+		Chromosome fittest = geneticAlgorithm.getFittest();
+		System.out.println("Best Chromosome found for x + y^2:");
+		System.out.println("x = " + Double.parseDouble(fittest.getGen(0).getValue())/decimals);
+		System.out.println("y = " + Double.parseDouble(fittest.getGen(1).getValue())/decimals);
+		System.out.println("points = " + fittest.getFitness());
 	}
 	
 	/**
@@ -70,9 +79,10 @@ public class Example {
 		
 		@Override
 		public double fitnessFunction(Chromosome chromosome, GeneticAlgorithm algorithm) {
-			int x = Integer.valueOf(chromosome.getGen(0).getValue());
-			int y = Integer.valueOf(chromosome.getGen(1).getValue());
-			return x + y^2;
+			double decimals = (int) Math.pow(10, NUMBER_OF_DECIMALS);
+			double x = Double.parseDouble(chromosome.getGen(0).getValue())/decimals;
+			double y = Double.parseDouble(chromosome.getGen(1).getValue())/decimals;
+			return x + Math.pow(y, 2);
 		}
 	}
 

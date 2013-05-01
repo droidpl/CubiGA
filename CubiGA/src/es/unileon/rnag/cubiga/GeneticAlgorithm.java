@@ -1,6 +1,7 @@
 package es.unileon.rnag.cubiga;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import es.unileon.rnag.cubiga.chromosome.Chromosome;
 import es.unileon.rnag.cubiga.datatypes.GeneticType;
@@ -86,7 +87,7 @@ public class GeneticAlgorithm {
 	 * Sorts population checking its fitness values from major to minor
 	 */
 	public void sortPopulation(){
-		Arrays.sort(population);
+		Arrays.sort(population, Collections.reverseOrder());
 	}
 	
 	/**
