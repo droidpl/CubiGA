@@ -2,8 +2,14 @@ package es.unileon.rnag.cubiga.operator;
 
 import es.unileon.rnag.cubiga.chromosome.Chromosome;
 import es.unileon.rnag.cubiga.operator.crossover.CrossoverElement;
+import es.unileon.rnag.cubiga.operator.crossover.CrossoverFactory;
+import es.unileon.rnag.cubiga.operator.crossover.CrossoverFactory.CrossoverType;
 import es.unileon.rnag.cubiga.operator.crossover.CrossoverStrategy;
+import es.unileon.rnag.cubiga.operator.selection.SelectionFactory;
+import es.unileon.rnag.cubiga.operator.selection.SelectionFactory.SelectionType;
 import es.unileon.rnag.cubiga.operator.selection.SelectionStrategy;
+import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory.MutationType;
+import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory;
 import es.unileon.rnag.cubiga.oprerator.mutation.MutationStrategy;
 
 /**
@@ -27,6 +33,20 @@ public class GeneticStrategy {
 		this.selectionStrategy = selectionStrategy;
 		this.crossoverStrategy = crossoverStrategy;
 		this.mutationStrategy = mutationStrategy;
+	}
+	
+	/**
+	 * Simple constructor of the Genetic Strategy
+	 * @param selectionType The selection strategy type
+	 * @param crossoverType The crossover strategy type
+	 * @param mutationType The mutation strategy type
+	 */
+	public GeneticStrategy(SelectionType selectionType, CrossoverType crossoverType, MutationType mutationType){
+		this(
+				SelectionFactory.makeSelectionStrategy(selectionType),
+				CrossoverFactory.makeCrossoverStrategy(crossoverType),
+				MutationFactory.makeMutationStrategy(mutationType)
+			);
 	}
 	
 	/**
