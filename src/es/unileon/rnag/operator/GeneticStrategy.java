@@ -2,9 +2,9 @@ package es.unileon.rnag.operator;
 
 import es.unileon.rnag.chromosome.Chromosome;
 import es.unileon.rnag.operator.crossover.CrossoverElement;
-import es.unileon.rnag.operator.crossover.CrossoverOperator;
-import es.unileon.rnag.operator.selection.SelectionOperator;
-import es.unileon.rnag.oprerator.mutation.MutationOperator;
+import es.unileon.rnag.operator.crossover.CrossoverStrategy;
+import es.unileon.rnag.operator.selection.SelectionStrategy;
+import es.unileon.rnag.oprerator.mutation.MutationStrategy;
 
 /**
  * Manages all the strategies inside the genetic algorithm
@@ -13,9 +13,9 @@ import es.unileon.rnag.oprerator.mutation.MutationOperator;
  * @version 1.0
  */
 public class GeneticStrategy {
-	private SelectionOperator selectionStrategy;
-	private CrossoverOperator crossoverStrategy;
-	private MutationOperator mutationStrategy;
+	private SelectionStrategy selectionStrategy;
+	private CrossoverStrategy crossoverStrategy;
+	private MutationStrategy mutationStrategy;
 	
 	/**
 	 * Creates a new instance of the strategy
@@ -23,7 +23,7 @@ public class GeneticStrategy {
 	 * @param crossoverOp The crossover operator
 	 * @param mutationOp The mutation operator
 	 */
-	public GeneticStrategy(SelectionOperator selectionOp, CrossoverOperator crossoverOp, MutationOperator mutationOp){
+	public GeneticStrategy(SelectionStrategy selectionOp, CrossoverStrategy crossoverOp, MutationStrategy mutationOp){
 		this.selectionStrategy = selectionOp;
 		this.crossoverStrategy = crossoverOp;
 		this.mutationStrategy = mutationOp;
@@ -54,5 +54,29 @@ public class GeneticStrategy {
 	 */
 	public Chromosome doMutation(Chromosome chromosome){
 		return mutationStrategy.doMutation(chromosome);
+	}
+
+	/**
+	 * Returns the selection strategy
+	 * @return The selection strategy
+	 */
+	public SelectionStrategy getSelectionStrategy() {
+		return selectionStrategy;
+	}
+	
+	/**
+	 * Returns the crossover strategy
+	 * @return The crossover strategy
+	 */
+	public CrossoverStrategy getCrossoverStrategy() {
+		return crossoverStrategy;
+	}
+
+	/**
+	 * Returns the mutation strategy
+	 * @return The mutation strategy
+	 */
+	public MutationStrategy getMutationStrategy() {
+		return mutationStrategy;
 	}
 }

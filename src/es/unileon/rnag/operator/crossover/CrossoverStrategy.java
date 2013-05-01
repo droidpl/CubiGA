@@ -7,14 +7,11 @@ package es.unileon.rnag.operator.crossover;
  */
 public abstract class CrossoverStrategy implements CrossoverOperator{
 	
-	// ATTRIBUTES //
 	/**
 	 * Attribute that indicate the probability to do the crossover
 	 */
 	private double crossoverProbability;
 	
-	
-	// METHOD //
 	/**
 	 * Method that change the probability to do the crossover
 	 * @param crossoverProbability The new crossover probability
