@@ -16,10 +16,10 @@ import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory.MutationType;
  * @author Javier de Pedro Lopez
  */
 public class Example {
-	private static final Double CROSSOVER_PROBABILITY = 0.5;
+	private static final Double CROSSOVER_PROBABILITY = 0.1;
 	private static final Double MUTATION_PROBABILITY = 0.05;
 	private static final int POPULATION = 30;
-	private static final int NUMBER_OF_GENERATIONS = 1000;
+	private static final int NUMBER_OF_GENERATIONS = 100000;
 	
 	/**
 	 * Executes the genetic algorithm
