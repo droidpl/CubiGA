@@ -84,4 +84,13 @@ public class BitChromosome extends Chromosome {
 			this.chromosome.set(i, Boolean.valueOf(chromosomeSlice[i - initIndex].getValue()));
 		}
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < this.chromosome.length(); i++){
+			builder.append(this.chromosome.get(i) + " ");
+		}
+		return builder.toString();
+	}
 }

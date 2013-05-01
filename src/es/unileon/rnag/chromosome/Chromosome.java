@@ -11,7 +11,7 @@ import es.unileon.rnag.gen.Gen;
  * @author Adrian Casimiro Alvarez
  * @version 1.0
  */
-public abstract class Chromosome {
+public abstract class Chromosome implements Comparable<Chromosome>{
 	/**
 	 * Fitness value of the chromosome
 	 */
@@ -44,6 +44,18 @@ public abstract class Chromosome {
 	 */
 	public GeneticType getGeneticType(){
 		return this.geneticType;
+	}
+	
+	/**
+	 * Compares two different chromosomes
+	 * @param chromosome The chromosome to compare
+	 * @return Value 1 if the chromosome has greater fitness than other, -1 y it is lower 
+	 * and 0 for equal fitness on chromosomes
+	 */
+	public int compareTo(Chromosome chromosome){
+		if (this.fitness < chromosome.getFitness()) return -1;
+		else if (this.fitness > chromosome.getFitness()) return 1;
+		else return 0;
 	}
 	
 	/**
@@ -92,4 +104,7 @@ public abstract class Chromosome {
 	 * @param initIndex the initial index
 	 */
 	public abstract void setChromosomeSlice(Gen[] chromosomeSlice, int initIndex);
+
+	@Override
+	public abstract String toString();
 }

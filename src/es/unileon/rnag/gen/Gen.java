@@ -19,11 +19,17 @@ public abstract class Gen {
 	 * @return A string containing this value.
 	 */
 	public abstract String getValue();
+	
 	/**
 	 * Returns the type of this gen.
 	 * @return The type of this gen.
 	 */
 	public GeneticType getGeneticType(){
 		return this.geneticType;
+	}
+	
+	@Override
+	public String toString() {
+		return getValue();
 	}
 }

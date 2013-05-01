@@ -98,4 +98,13 @@ public class RangeChromosome extends Chromosome {
 			}
 		}
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < this.chromosome.length; i++){
+			builder.append(this.chromosome[i] + " ");
+		}
+		return builder.toString();
+	}
 }

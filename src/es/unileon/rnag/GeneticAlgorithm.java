@@ -1,5 +1,7 @@
 package es.unileon.rnag;
 
+import java.util.Arrays;
+
 import es.unileon.rnag.chromosome.Chromosome;
 import es.unileon.rnag.datatypes.GeneticType;
 import es.unileon.rnag.operator.FitnessOperator;
@@ -46,7 +48,7 @@ public class GeneticAlgorithm {
 	 * Sorts population cheching its fitness values from major to minor.
 	 */
 	public void sortPopulation(){
-		//TODO use sort to sort the population from major fitness to minor
+		Arrays.sort(population);
 	}
 	
 	/**

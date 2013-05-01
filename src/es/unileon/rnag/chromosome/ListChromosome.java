@@ -81,4 +81,13 @@ public class ListChromosome extends Chromosome {
 			this.chromosome[i] = chromosomeSlice[i - initIndex].getValue();
 		}
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < this.chromosome.length; i++){
+			builder.append(this.chromosome[i] + " ");
+		}
+		return builder.toString();
+	}
 }
