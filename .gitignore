@@ -3,7 +3,7 @@
 .project
 .classpath
 bin
-.dia~
+*~
 
 # Package Files #
 *.jar

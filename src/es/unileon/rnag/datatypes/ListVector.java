@@ -1,17 +1,28 @@
 package es.unileon.rnag.datatypes;
 
-import java.util.Random;
-
 import es.unileon.rnag.chromosome.Chromosome;
 import es.unileon.rnag.chromosome.ListChromosome;
 import es.unileon.rnag.gen.Gen;
 import es.unileon.rnag.gen.ListGen;
 
+/**
+ * Class that encapsulates genes with list type
+ * @author Adrian Casimiro Alvarez
+ * @author Javier de Pedro Lopez
+ */
 public class ListVector extends GeneticType{
 
-	private String[] posibilities;
+	/**
+	 * String chain posibilities of this type
+	 */
+	private List[] posibilities;
 	
-	public ListVector(String[] posibilities){
+	/**
+	 * Constructor of the list vector posibilities
+	 * @param posibilities The posibilities on this gen
+	 */
+	public ListVector(List[] posibilities){
+		if (posibilities.length == 0) throw new RuntimeException("There are no posibilities on the passed ListVector");
 		this.posibilities = posibilities;
 	}
 	
@@ -21,9 +32,8 @@ public class ListVector extends GeneticType{
 	}
 
 	@Override
-	public Gen getGen(int index) {
-		Random random = new Random(posibilities.length);
-		return new ListGen(posibilities[random.nextInt()], this);
+	public Gen generateGen(int index) {
+		return new ListGen(posibilities[index].getRandomPossibility(), this);
 	}
 
 }

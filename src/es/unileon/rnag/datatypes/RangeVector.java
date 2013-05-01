@@ -22,7 +22,7 @@ public class RangeVector extends GeneticType{
 	 * @param ranges List of ranges of the genes of the chromosome
 	 */
 	public RangeVector(Range ... ranges){
-		if (ranges.length == 0) throw new RuntimeException("There is no ranges on RangeVector.");
+		if (ranges.length == 0) throw new RuntimeException("There is no ranges on RangeVector");
 		this.ranges = ranges;
 	}
 
@@ -32,7 +32,7 @@ public class RangeVector extends GeneticType{
 	}
 
 	@Override
-	public Gen getGen(int index) {
+	public Gen generateGen(int index) {
 		return new RangeGen(ranges[index].generateNumber(), this);
 	}
 }

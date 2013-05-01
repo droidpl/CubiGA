@@ -15,16 +15,16 @@ import es.unileon.rnag.gen.Gen;
 public class BitVector extends GeneticType{
 	
 	/**
-	 * The amount bits.
+	 * The amount bits
 	 */
 	private int length;
 	
 	/**
-	 * Constructor of the bit vector data type.
-	 * @param length The amount of bits that the chromosomes generated mus have.
+	 * Constructor of the bit vector data type
+	 * @param length The amount of bits that the chromosomes generated mus have
 	 */
 	public BitVector(int length){
-		if (length < 1 ) throw new RuntimeException("The length of the BitVector data type must be greater than 0.");
+		if (length < 1 ) throw new RuntimeException("The length of the BitVector data type must be greater than 0");
 		this.length = length;
 	}
 	
@@ -33,11 +33,9 @@ public class BitVector extends GeneticType{
 		return new BitChromosome(this.length, this);
 	}
 
-
 	@Override
-	public Gen getGen(int index) {
+	public Gen generateGen(int index) {
 		Random random = new Random();
 		return new BitGen(random.nextBoolean(), this);
 	}
-	
 }
