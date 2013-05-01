@@ -1,17 +1,20 @@
 package es.unileon.rnag.operator.selection;
 
-public class SelectionStrategy {
-	
-	// ATTRIBUTES //
-	private double selectionProbability;
-	
+import es.unileon.rnag.chromosome.Chromosome;
+
+/**
+ * Class that encapsulate all the selectionStrategies
+ * @author Adrian Casimiro Álvarez
+ * @author Javier de Pedro López
+ *
+ */
+public abstract class SelectionStrategy implements SelectionOperator{
 	
 	// METHOD //
-	public void setSelectionProbability(double selectionProbability){
-		this.selectionProbability = selectionProbability;
-	}
-	
-	public double getSelectionProbability(){
-		return this.selectionProbability;
-	}
+	/**
+	 * Method that do the selection from a previous chromosome list (previous generation)
+	 * @param previousGeneration The previous generation
+	 * @return The new generation
+	 */
+	public abstract Chromosome[] doSelection(Chromosome[] previousGeneration);
 }
