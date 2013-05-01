@@ -5,7 +5,7 @@ import es.unileon.rnag.chromosome.Chromosome;
 /**
  * Class that implements the roulette selection
  * @author Adrian Casimiro Alvarez
- * @author Javier de Pedro López
+ * @author Javier de Pedro Lopez
  */
 public class RouletteSelection extends SelectionStrategy{
 

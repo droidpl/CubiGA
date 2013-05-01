@@ -7,7 +7,7 @@ import es.unileon.rnag.chromosome.Chromosome;
 /**
  * Class that implements the tournament selection
  * @author Adrian Casimiro Alvarez
- * @author Javier de Pedro López
+ * @author Javier de Pedro Lopez
  */
 public class TournamentSelection extends SelectionStrategy{
 	private static final float PROPORTION_ELEMENTS_TO_COMPARE = 1/10;
