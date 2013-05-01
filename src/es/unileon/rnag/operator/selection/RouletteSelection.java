@@ -15,7 +15,7 @@ public class RouletteSelection extends SelectionStrategy{
 		int i;
 		double total = 0;
 		for(i=0; i<previousGeneration.length; i++){
-			total = total + this.previousChromosome[i].getFitness();
+			total = total + previousGeneration[i].getFitness();
 		}
 		
 		int[] roulette = new int[100];
@@ -23,7 +23,7 @@ public class RouletteSelection extends SelectionStrategy{
 		double probability;
 		int totalCells;
 		for(i=0; i<previousGeneration.length; i++){
-			probability = this.previousChromosome[i].getFitness() / total;
+			probability = previousGeneration[i].getFitness() / total;
 			totalCells = (int) (probability * 100);
 			for(int j=0; j<totalCells; j++){
 				roulette[j+actualPosition] = i;
@@ -36,12 +36,12 @@ public class RouletteSelection extends SelectionStrategy{
 			roulette[j] =(int) (Math.random() * previousGeneration.length);	
 		}
 		
-		this.newChromosome = new Chromosome[this.previousChromosome.length];
+		Chromosome[] newChromosome = new Chromosome[previousGeneration.length];
 		for(i=0; i<previousGeneration.length; i++){
-			this.newChromosome[i] = this.previousChromosome[roulette[(int)(Math.random() * 100)]];
+			newChromosome[i] = previousGeneration[roulette[(int)(Math.random() * 100)]];
 		}
 		
-		return this.newChromosome;
+		return newChromosome;
 	}
 
 }
