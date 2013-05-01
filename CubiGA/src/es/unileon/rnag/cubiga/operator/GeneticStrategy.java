@@ -19,14 +19,14 @@ public class GeneticStrategy {
 	
 	/**
 	 * Creates a new instance of the strategy
-	 * @param selectionOp The selection operator
-	 * @param crossoverOp The crossover operator
-	 * @param mutationOp The mutation operator
+	 * @param selectionStrategy The selection operator
+	 * @param crossoverStrategy The crossover operator
+	 * @param mutationStrategy The mutation operator
 	 */
-	public GeneticStrategy(SelectionStrategy selectionOp, CrossoverStrategy crossoverOp, MutationStrategy mutationOp){
-		this.selectionStrategy = selectionOp;
-		this.crossoverStrategy = crossoverOp;
-		this.mutationStrategy = mutationOp;
+	public GeneticStrategy(SelectionStrategy selectionStrategy, CrossoverStrategy crossoverStrategy, MutationStrategy mutationStrategy){
+		this.selectionStrategy = selectionStrategy;
+		this.crossoverStrategy = crossoverStrategy;
+		this.mutationStrategy = mutationStrategy;
 	}
 	
 	/**
