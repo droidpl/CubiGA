@@ -9,15 +9,13 @@ import es.unileon.rnag.chromosome.Chromosome;
  *
  */
 public abstract class MutationStrategy implements MutationOperator{
-	
-	// ATTRIBUTES //
+
 	/**
 	 * Attribute that indicate the probability to do the mutation
 	 */
 	private double mutationProbability;
 	
-	
-	// METHOD //
+
 	/**
 	 * Method that change the probability to do the mutation
 	 * @param mutationProbability The new mutation probability

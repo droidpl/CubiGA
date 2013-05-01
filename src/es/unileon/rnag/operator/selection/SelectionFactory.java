@@ -31,7 +31,7 @@ public class SelectionFactory {
 			selectionStrategy = new RouletteSelection();
 			break;
 		default:
-			throw new RuntimeException("The selected strategy does not exists");
+			throw new RuntimeException("The selected selection strategy does not exists");
 		}
 
 		return selectionStrategy;

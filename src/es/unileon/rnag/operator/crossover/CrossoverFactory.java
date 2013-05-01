@@ -18,7 +18,7 @@ public class CrossoverFactory {
 	/**
 	 * Method that generate the CrossoverStrategy
 	 * @param selectionType Enumeration type that specify the CrossoverStrategy to be created
-	 * @return
+	 * @return the strategy
 	 */
 	public CrossoverStrategy makeCrossoverStrategy(CrossoverType crossoverType){
 		CrossoverStrategy crossoverStrategy = null;
@@ -31,7 +31,7 @@ public class CrossoverFactory {
 			crossoverStrategy = new TwoPoint();
 			break;
 		default:
-			throw new RuntimeException("The selected strategy does not exists");
+			throw new RuntimeException("The selected crossover strategy does not exists");
 		}
 
 		return crossoverStrategy;
