@@ -20,7 +20,7 @@ public class SelectionFactory {
 	 * @param selectionType Enumeration type that specify the SelectionStrategy to be created
 	 * @return The strategy
 	 */
-	public SelectionStrategy makeSelectionStrategy(SelectionType selectionType){
+	public static SelectionStrategy makeSelectionStrategy(SelectionType selectionType){
 		SelectionStrategy selectionStrategy = null;
 		switch (selectionType) {
 		case TOURNAMENT:

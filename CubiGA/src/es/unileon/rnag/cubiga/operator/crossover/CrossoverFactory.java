@@ -20,7 +20,7 @@ public class CrossoverFactory {
 	 * @param crossoverType Enumeration type that specify the CrossoverStrategy to be created
 	 * @return the strategy
 	 */
-	public CrossoverStrategy makeCrossoverStrategy(CrossoverType crossoverType){
+	public static CrossoverStrategy makeCrossoverStrategy(CrossoverType crossoverType){
 		CrossoverStrategy crossoverStrategy = null;
 		switch (crossoverType) {
 		case SINGLE_POINT:

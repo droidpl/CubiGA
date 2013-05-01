@@ -20,7 +20,7 @@ public class MutationFactory {
 	 * @param mutationType Enumeration type that specify the SelectionStrategy to be created
 	 * @return The strategy
 	 */
-	public MutationStrategy makeMutationStrategy(MutationType mutationType){
+	public static MutationStrategy makeMutationStrategy(MutationType mutationType){
 		MutationStrategy mutationStrategy;
 		switch (mutationType) {
 		case RANDOM_MUTATION:
