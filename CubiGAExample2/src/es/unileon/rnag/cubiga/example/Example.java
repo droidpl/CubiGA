@@ -3,6 +3,7 @@ package es.unileon.rnag.cubiga.example;
 import es.unileon.rnag.cubiga.GeneticAlgorithm;
 import es.unileon.rnag.cubiga.chromosome.Chromosome;
 import es.unileon.rnag.cubiga.datatypes.BitVector;
+import es.unileon.rnag.cubiga.datatypes.GeneticType;
 import es.unileon.rnag.cubiga.operator.FitnessOperator;
 import es.unileon.rnag.cubiga.operator.GeneticStrategy;
 import es.unileon.rnag.cubiga.operator.StopOperator;
@@ -26,17 +27,21 @@ public class Example {
 	 * @param args External arguments
 	 */
 	public static void main(String[] args) {
-		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.ROULETTE, CrossoverType.TWO_POINT, MutationType.RANDOM_MUTATION);
-		FitnessStop fitnessStop = new FitnessStop();
-		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, fitnessStop, fitnessStop);
-		
-		BitVector bitVector = new BitVector(300);
-		
-		geneticAlgorithm.initialize(POPULATION, bitVector, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
-		
+		//Select the algorithm strategy
+		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.TOURNAMENT, CrossoverType.TWO_POINT, MutationType.RANDOM_MUTATION);
+		Operators operators = new Operators();
+		//Create an instance of the GA
+		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, operators, operators);
+		//Determine the data type
+		GeneticType geneticType = new BitVector(300);
+		//Initialize the GA
+		geneticAlgorithm.initialize(POPULATION, geneticType, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
+		//Evolve it
 		geneticAlgorithm.evolve();
-		
-		System.out.println("Chromosome: " + geneticAlgorithm.getFittest() + " \nFitness: " + Math.sqrt(geneticAlgorithm.getFittest().getFitness()));
+		//Print results
+		System.out.println("Chromosome: " + geneticAlgorithm.getFittest());
+		System.out.println("Fitness: " + geneticAlgorithm.getFittest().getFitness());
+		System.out.println("Execution time = " + geneticAlgorithm.getExecutionTime());
 	}
 	
 	/**
@@ -44,14 +49,14 @@ public class Example {
 	 * @author Adrian Casimiro Alvarez
 	 * @author Javier de Pedro Lopez
 	 */
-	public static class FitnessStop implements FitnessOperator,StopOperator{
+	public static class Operators implements FitnessOperator, StopOperator{
 		@Override
 		public boolean mustContinue(GeneticAlgorithm algorithm) {
-			//The algorithm stop if the fittest has all bits to 1
+			//The algorithm stop if the fittest has all bits set to 1
 			boolean result = false;
-			Chromosome chromosoma = algorithm.getFittest();
-			for(int i=0; i<chromosoma.length(); i++){
-				if(Integer.parseInt(chromosoma.getGen(i).toString()) == 0){
+			Chromosome chromosome = algorithm.getFittest();
+			for(int i = 0; i < chromosome.length(); i++){
+				if(!Boolean.parseBoolean(chromosome.getGen(i).getValue())){
 					result = true;
 					break;
 				}

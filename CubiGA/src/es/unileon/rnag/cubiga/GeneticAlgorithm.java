@@ -60,6 +60,10 @@ public class GeneticAlgorithm {
 	 * True if the algorithm has been runned
 	 */
 	private boolean runned;
+	/**
+	 * The time it uses to execute the algorithm.
+	 */
+	private double executionTime;
 	
 	/**
 	 * Initializes the genetic algorithm
@@ -79,6 +83,7 @@ public class GeneticAlgorithm {
 		this.populationSize = 0;
 		this.generationIndex = 0;
 		this.numberOfGenerations = 0;
+		this.executionTime = 0;
 		//Has been executed
 		this.runned = false;
 	}
@@ -137,9 +142,14 @@ public class GeneticAlgorithm {
 	 */
 	public void evolve(){
 		if (this.populationSize < 1 || this.geneticType == null || this.numberOfGenerations < 1) throw new RuntimeException("Bad parameter initialization");
+		//Start measuring time
+		long start = System.nanoTime();
+		//Create population
 		this.population = new Chromosome[this.populationSize];
 		//First generation initialization
 		firstGenerationInitialization();
+		//Initial measure
+		this.executionTime = (System.nanoTime() - start) * 1.0e-9;
 		/*Loop
 			calculate crossover
 			calculate mutation
@@ -165,6 +175,8 @@ public class GeneticAlgorithm {
 			sortPopulation();
 			checkFittest();
 			this.generationIndex++;
+			//Measure execution time
+			this.executionTime = (System.nanoTime() - start) * 1.0e-9;
 		}
 		this.runned = true;
 	}
@@ -235,6 +247,15 @@ public class GeneticAlgorithm {
 		this.numberOfGenerations = numberOfGenerations;
 		setCrossoverProbability(crossoverProbability);
 		setMutationProbability(mutationProbability);
+	}
+	
+	/**
+	 * Returns the time the algorithm is using to perform all the operations. It is
+	 * refreshed on each generation.
+	 * @return The execution time.
+	 */
+	public double getExecutionTime(){
+		return this.executionTime;
 	}
 	
 	/**

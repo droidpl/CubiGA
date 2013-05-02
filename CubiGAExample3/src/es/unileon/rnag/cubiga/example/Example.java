@@ -2,6 +2,7 @@ package es.unileon.rnag.cubiga.example;
 
 import es.unileon.rnag.cubiga.GeneticAlgorithm;
 import es.unileon.rnag.cubiga.chromosome.Chromosome;
+import es.unileon.rnag.cubiga.datatypes.GeneticType;
 import es.unileon.rnag.cubiga.datatypes.List;
 import es.unileon.rnag.cubiga.datatypes.ListVector;
 import es.unileon.rnag.cubiga.operator.FitnessOperator;
@@ -28,22 +29,21 @@ public class Example {
 	 */
 	public static void main(String[] args) {
 		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.ROULETTE, CrossoverType.TWO_POINT, MutationType.RANDOM_MUTATION);
-		FitnessStop fitnessStop = new FitnessStop();
-		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, fitnessStop, fitnessStop);
-		
-		List[] list = new List[]
-				{
-					new List("red", "yellow", "green"),
-					new List("light1", "light2", "light3", "light4", "light5", "light6"),
-					new List("carsWaiting", "lorriesWaiting", "bikesWaiting")
-				};
-		ListVector listVector = new ListVector(list);
-		//Initialize the ag
-		geneticAlgorithm.initialize(POPULATION, listVector, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
+		Operators operators = new Operators();
+		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, operators, operators);
+		GeneticType geneticType = new ListVector(new List[]{
+				new List("red", "yellow", "green"),
+				new List("light1", "light2", "light3", "light4", "light5", "light6"),
+				new List("carsWaiting", "lorriesWaiting", "bikesWaiting")
+		});
+		//Initialize the AG
+		geneticAlgorithm.initialize(POPULATION, geneticType, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
 		//Evolve
 		geneticAlgorithm.evolve();
 		//Print results
-		System.out.println("Chromosome: " + geneticAlgorithm.getFittest() + " \nFitness: " + geneticAlgorithm.getFittest().getFitness());
+		System.out.println("Chromosome: " + geneticAlgorithm.getFittest());
+		System.out.println("Fitness: " + geneticAlgorithm.getFittest().getFitness());
+		System.out.println("Execution time = " + geneticAlgorithm.getExecutionTime());
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class Example {
 	 * @author Adrian Casimiro Alvarez
 	 * @author Javier de Pedro Lopez
 	 */
-	public static class FitnessStop implements FitnessOperator,StopOperator{
+	public static class Operators implements FitnessOperator, StopOperator{
 		
 		@Override
 		public boolean mustContinue(GeneticAlgorithm algorithm) {

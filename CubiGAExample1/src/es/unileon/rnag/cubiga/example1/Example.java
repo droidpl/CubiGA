@@ -46,7 +46,7 @@ public class Example {
 	 * @param args External arguments
 	 */
 	public static void main(String[] args) {
-		GeneticStrategy strategy = new GeneticStrategy(SelectionType.TOURNAMENT, CrossoverType.SINGLE_POINT, MutationType.RANDOM_MUTATION);
+		GeneticStrategy strategy = new GeneticStrategy(SelectionType.ROULETTE, CrossoverType.SINGLE_POINT, MutationType.RANDOM_MUTATION);
 		Operators operators = new Operators();
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(strategy, operators, operators);
 		//Initialize the algorithm
@@ -63,7 +63,8 @@ public class Example {
 		System.out.println("Best Chromosome found for x + y^2:");
 		System.out.println("x = " + Double.parseDouble(fittest.getGen(0).getValue())/decimals);
 		System.out.println("y = " + Double.parseDouble(fittest.getGen(1).getValue())/decimals);
-		System.out.println("points = " + fittest.getFitness());
+		System.out.println("Points = " + fittest.getFitness());
+		System.out.println("Execution time = " + geneticAlgorithm.getExecutionTime());
 	}
 	
 	/**
