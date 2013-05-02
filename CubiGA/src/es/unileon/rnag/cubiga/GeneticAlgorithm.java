@@ -140,25 +140,15 @@ public class GeneticAlgorithm {
 		this.population = new Chromosome[this.populationSize];
 		//First generation initialization
 		firstGenerationInitialization();
+		/*Loop
+			calculate crossover
+			calculate mutation
+			calculate fitness
+		end loop*/
 		//GA loop
-		System.out.print("Evolving");
-		int countToPrint = 0;
 		while (this.stopOperator.mustContinue(this) && this.generationIndex < this.numberOfGenerations){
-			countToPrint++;
-			if(countToPrint%100 == 0){
-				System.out.print(".");
-				if(countToPrint == 10000) {
-					countToPrint = 0;
-					System.out.println();
-				}
-			}
 			//Do selection
 			this.population = this.geneticStrategy.doSelection(this.population);
-			/*Loop
-				calculate crossover
-				calculate mutation
-				calculate fitness
-			end loop*/
 			for (int i = 1; i < this.populationSize; i+=2){
 				CrossoverElement crossElem = new CrossoverElement(this.population[i-1], this.population[i]);
 				//Do crossover
@@ -176,7 +166,6 @@ public class GeneticAlgorithm {
 			checkFittest();
 			this.generationIndex++;
 		}
-		System.out.println("\n\n\n");
 		this.runned = true;
 	}
 	
@@ -277,7 +266,9 @@ public class GeneticAlgorithm {
 	 * Check the fittest element of the current generation.
 	 */
 	private void checkFittest(){
-		if (fittest == null) fittest = this.population[0];
-		else if (this.population[0].getFitness() > fittest.getFitness()) fittest = this.population[0];
+		if (fittest == null) 
+			fittest = this.population[0].copyChromosome();
+		else if (this.population[0].getFitness() > fittest.getFitness()) 
+			fittest = this.population[0].copyChromosome();
 	}
 }

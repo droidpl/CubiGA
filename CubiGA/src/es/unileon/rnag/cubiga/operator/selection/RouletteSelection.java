@@ -11,37 +11,29 @@ public class RouletteSelection extends SelectionStrategy{
 
 	@Override
 	public Chromosome[] doSelection(Chromosome[] previousGeneration) {
-
-		int i;
-		double total = 0;
-		for(i=0; i<previousGeneration.length; i++){
-			total = total + previousGeneration[i].getFitness();
+		//Get the total fitness
+		double totalFitness = 0;
+		for(int i = 0; i < previousGeneration.length; i++){
+			totalFitness += previousGeneration[i].getFitness();
 		}
 		
-		int[] roulette = new int[100];
-		int actualPosition = 0;
-		double probability;
-		int totalCells;
-		for(i=0; i<previousGeneration.length; i++){
-			probability = previousGeneration[i].getFitness() / total;
-			totalCells = (int) (probability * 100);
-			for(int j=0; j<totalCells; j++){
-				roulette[j + actualPosition] = i;
-			}
-			actualPosition = actualPosition + totalCells;
+		//Create the stadistic roulette assigning values
+		double[] roulette = new double[previousGeneration.length];
+		double sumProb = 0;
+		for (int i = 0; i < roulette.length; i++){
+			sumProb +=  previousGeneration[i].getFitness() / totalFitness;
+			roulette[i] = sumProb;
 		}
 		
-		//If it was left empty positions (this would be almost impossible)
-		for(int j = actualPosition; j<100;j++){
-			roulette[j] =(int) (Math.random() * previousGeneration.length);	
+		Chromosome[] newGeneration = new Chromosome[previousGeneration.length];
+		for(int i = 0; i < newGeneration.length; i++){
+			double selection = Math.random();
+			int j = 0;
+			while (selection > roulette[j]) j++;
+			newGeneration[i] = previousGeneration[j];
 		}
 		
-		Chromosome[] newChromosome = new Chromosome[previousGeneration.length];
-		for(i=0; i<previousGeneration.length; i++){
-			newChromosome[i] = previousGeneration[roulette[(int)(Math.random() * 100)]];
-		}
-		
-		return newChromosome;
+		return newGeneration;
 	}
 
 }
