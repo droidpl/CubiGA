@@ -35,6 +35,17 @@ public class BitChromosome extends Chromosome {
 		this.geneticType = type;
 	}
 	
+	/**
+	 * Performs a copy of the BitChromosome
+	 * @param chromosome The chromosome copy
+	 */
+	public BitChromosome(BitChromosome chromosome){
+		this.chromosome = new boolean[chromosome.length()];
+		this.geneticType = chromosome.getGeneticType();
+		setFitness(chromosome.getFitness());
+		setChromosomeSlice(chromosome.getChromosomeSlice(0, chromosome.length()), 0);
+	}
+	
 	@Override
 	public int length() {
 		return this.chromosome.length;
@@ -92,5 +103,10 @@ public class BitChromosome extends Chromosome {
 			builder.append(this.chromosome[i]? "1" : "0");
 		}
 		return builder.toString();
+	}
+	
+	@Override
+	public Chromosome copyChromosome(){
+		return new BitChromosome(this);
 	}
 }

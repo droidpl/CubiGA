@@ -25,6 +25,7 @@ public class TwoPoint extends CrossoverStrategy{
 			
 			int firstPosition =  ran.nextInt(length);
 			int secondPosition = ran.nextInt(length);
+			//Order points if they are not
 			if(firstPosition > secondPosition){
 				int aux = firstPosition;
 				firstPosition = secondPosition;

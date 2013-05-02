@@ -28,7 +28,7 @@ public class List {
 	 * @return Random string for the given list.
 	 */
 	public String getRandomPossibility(){
-		Random rand = new Random(possibilities.length);
-		return possibilities[rand.nextInt()];
+		Random rand = new Random();
+		return possibilities[rand.nextInt(possibilities.length)];
 	}
 }

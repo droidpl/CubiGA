@@ -105,6 +105,12 @@ public abstract class Chromosome implements Comparable<Chromosome>{
 	 */
 	public abstract void setChromosomeSlice(Gen[] chromosomeSlice, int initIndex);
 
+	/**
+	 * Performs a deepcopy for the given chromosome
+	 * @return The new chromosome
+	 */
+	public abstract Chromosome copyChromosome();
+	
 	@Override
 	public abstract String toString();
 }

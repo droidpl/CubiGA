@@ -38,6 +38,17 @@ public class RangeChromosome extends Chromosome {
 		this.geneticType = type;
 	}
 	
+	/**
+	 * Performs a copy of the RangeChromosome
+	 * @param chromosome The chromosome copy
+	 */
+	public RangeChromosome(RangeChromosome chromosome){
+		this.chromosome = new int[chromosome.length()];
+		this.geneticType = chromosome.getGeneticType();
+		setFitness(chromosome.getFitness());
+		setChromosomeSlice(chromosome.getChromosomeSlice(0, chromosome.length()), 0);
+	}
+	
 	@Override
 	public int length() {
 		return this.chromosome.length;
@@ -107,5 +118,10 @@ public class RangeChromosome extends Chromosome {
 			builder.append(this.chromosome[i] + " ");
 		}
 		return builder.toString();
+	}
+	
+	@Override
+	public Chromosome copyChromosome(){
+		return new RangeChromosome(this);
 	}
 }

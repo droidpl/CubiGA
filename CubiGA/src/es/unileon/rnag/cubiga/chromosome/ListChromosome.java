@@ -33,6 +33,17 @@ public class ListChromosome extends Chromosome {
 		}
 	}
 	
+	/**
+	 * Performs a copy of the ListChromosome
+	 * @param chromosome The chromosome copy
+	 */
+	public ListChromosome(ListChromosome chromosome){
+		this.chromosome = new String[chromosome.length()];
+		this.geneticType = chromosome.getGeneticType();
+		setFitness(chromosome.getFitness());
+		setChromosomeSlice(chromosome.getChromosomeSlice(0, chromosome.length()), 0);
+	}
+	
 	@Override
 	public int length() {
 		return this.chromosome.length;
@@ -90,5 +101,10 @@ public class ListChromosome extends Chromosome {
 			builder.append(this.chromosome[i] + " ");
 		}
 		return builder.toString();
+	}
+	
+	@Override
+	public Chromosome copyChromosome(){
+		return new ListChromosome(this);
 	}
 }

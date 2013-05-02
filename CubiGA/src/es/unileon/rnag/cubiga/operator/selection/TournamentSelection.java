@@ -1,5 +1,7 @@
 package es.unileon.rnag.cubiga.operator.selection;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 import es.unileon.rnag.cubiga.chromosome.Chromosome;
@@ -15,17 +17,19 @@ public class TournamentSelection extends SelectionStrategy{
 	@Override
 	public Chromosome[] doSelection(Chromosome[] previousGeneration) {
 		Chromosome[] newGeneration = new Chromosome[previousGeneration.length];
+		//Select the number of participants on the tournament min = 2
 		int tournamentParticipantsNumber = (int) (previousGeneration.length * PROPORTION_ELEMENTS_TO_COMPARE);
 		if(tournamentParticipantsNumber < 2) tournamentParticipantsNumber = 2;
 		Chromosome[] tournamentParticipants = new Chromosome[tournamentParticipantsNumber];
 		int position;
 		Random rand = new Random();
-		for(int i=0; i<previousGeneration.length; i++){
-			for(int j=0; j<tournamentParticipantsNumber; j++){
+		for(int i = 0; i < newGeneration.length; i++){
+			for(int j = 0; j < tournamentParticipants.length; j++){
 				position = rand.nextInt(previousGeneration.length);
 				tournamentParticipants[j] = previousGeneration[position];
 			}
-			newGeneration[i] = this.fight(tournamentParticipants);
+			//New generation element is the result of the fight on the tournament
+			newGeneration[i] = fight(tournamentParticipants);
 		}
 		
 		return newGeneration;
@@ -37,11 +41,8 @@ public class TournamentSelection extends SelectionStrategy{
 	 * @return The winner (the best chromosome)
 	 */
 	private Chromosome fight(Chromosome[] tournamentParticipants){
-		Chromosome bestChromosome = tournamentParticipants[0];
-		for(int i=1; i<tournamentParticipants.length; i++){
-			if(bestChromosome.compareTo(tournamentParticipants[i]) == -1) bestChromosome = tournamentParticipants[i];
-		}
-		return bestChromosome;
+		Arrays.sort(tournamentParticipants,  Collections.reverseOrder());
+		return tournamentParticipants[0];
 	}
 
 }

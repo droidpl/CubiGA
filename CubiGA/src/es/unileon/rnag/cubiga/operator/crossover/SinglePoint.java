@@ -17,7 +17,7 @@ public class SinglePoint extends CrossoverStrategy{
 		Random ran = new Random();
 		double probability = ran.nextDouble();
 		
-		if(probability < this.getCrossoverProbability()){
+		if(probability < getCrossoverProbability()){
 			Chromosome firstChromosome = crossoverElement.getFirstChromosome();
 			Chromosome secondChromosome = crossoverElement.getSecondChromosome();
 			

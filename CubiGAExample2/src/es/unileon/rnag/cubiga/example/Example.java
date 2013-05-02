@@ -16,27 +16,27 @@ import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory.MutationType;
  * @author Javier de Pedro Lopez
  */
 public class Example {
-	private static final Double CROSSOVER_PROBABILITY = 0.1;
+	private static final Double CROSSOVER_PROBABILITY = 0.7;
 	private static final Double MUTATION_PROBABILITY = 0.05;
-	private static final int POPULATION = 30;
-	private static final int NUMBER_OF_GENERATIONS = 100000;
+	private static final int POPULATION = 300;
+	private static final int NUMBER_OF_GENERATIONS = 80;
 	
 	/**
 	 * Executes the genetic algorithm
 	 * @param args External arguments
 	 */
 	public static void main(String[] args) {
-		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.TOURNAMENT, CrossoverType.TWO_POINT, MutationType.RANDOM_MUTATION);
+		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.ROULETTE, CrossoverType.TWO_POINT, MutationType.RANDOM_MUTATION);
 		FitnessStop fitnessStop = new FitnessStop();
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, fitnessStop, fitnessStop);
 		
-		BitVector bitVector = new BitVector(20);
+		BitVector bitVector = new BitVector(300);
 		
 		geneticAlgorithm.initialize(POPULATION, bitVector, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
 		
 		geneticAlgorithm.evolve();
 		
-		System.out.println("Chromosome: " + geneticAlgorithm.getFittest() + " \nFitness: " + geneticAlgorithm.getFittest().getFitness());
+		System.out.println("Chromosome: " + geneticAlgorithm.getFittest() + " \nFitness: " + Math.sqrt(geneticAlgorithm.getFittest().getFitness()));
 	}
 	
 	/**

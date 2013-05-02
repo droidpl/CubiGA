@@ -23,15 +23,15 @@ public class Example {
 	/**
 	 * Population size of the algorithm.
 	 */
-	private static final int POPULATION_SIZE = 30;
+	private static final int POPULATION_SIZE = 200;
 	/**
 	 * The number of generations in the algorithm.
 	 */
-	private static final int NUMBER_OF_GENERATIONS = 80;
+	private static final int NUMBER_OF_GENERATIONS = 200;
 	/**
 	 * The crossover probability.
 	 */
-	private static final double CROSSOVER_PROB = 0.82;
+	private static final double CROSSOVER_PROB = 0.5;
 	/**
 	 * The mutation probability.
 	 */
@@ -46,7 +46,7 @@ public class Example {
 	 * @param args External arguments
 	 */
 	public static void main(String[] args) {
-		GeneticStrategy strategy = new GeneticStrategy(SelectionType.ROULETTE, CrossoverType.SINGLE_POINT, MutationType.RANDOM_MUTATION);
+		GeneticStrategy strategy = new GeneticStrategy(SelectionType.TOURNAMENT, CrossoverType.SINGLE_POINT, MutationType.RANDOM_MUTATION);
 		Operators operators = new Operators();
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(strategy, operators, operators);
 		//Initialize the algorithm
