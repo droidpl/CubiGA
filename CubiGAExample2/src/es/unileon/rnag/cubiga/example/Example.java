@@ -28,7 +28,7 @@ public class Example {
 	 */
 	public static void main(String[] args) {
 		//Select the algorithm strategy
-		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.TOURNAMENT, CrossoverType.TWO_POINT, MutationType.RANDOM_MUTATION);
+		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.TOURNAMENT, CrossoverType.TWO_POINT, MutationType.RANDOM);
 		Operators operators = new Operators();
 		//Create an instance of the GA
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, operators, operators);

@@ -28,7 +28,7 @@ public class Example {
 	 * @param args External arguments
 	 */
 	public static void main(String[] args) {
-		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.ROULETTE, CrossoverType.TWO_POINT, MutationType.RANDOM_MUTATION);
+		GeneticStrategy geneticStrategy = new GeneticStrategy(SelectionType.ROULETTE, CrossoverType.TWO_POINT, MutationType.RANDOM);
 		Operators operators = new Operators();
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, operators, operators);
 		GeneticType geneticType = new ListVector(new List[]{

@@ -12,7 +12,7 @@ public class MutationFactory {
 	 * @author Javier de Pedro López
 	 */
 	public enum MutationType{
-		RANDOM_MUTATION
+		RANDOM
 	}
 	
 	/**
@@ -23,7 +23,7 @@ public class MutationFactory {
 	public static MutationStrategy makeMutationStrategy(MutationType mutationType){
 		MutationStrategy mutationStrategy;
 		switch (mutationType) {
-		case RANDOM_MUTATION:
+		case RANDOM:
 			mutationStrategy = new RandomMutation();
 			break;
 

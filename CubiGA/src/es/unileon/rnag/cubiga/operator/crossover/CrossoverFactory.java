@@ -24,11 +24,11 @@ public class CrossoverFactory {
 		CrossoverStrategy crossoverStrategy = null;
 		switch (crossoverType) {
 		case SINGLE_POINT:
-			crossoverStrategy = new SinglePoint();
+			crossoverStrategy = new SinglePointCrossover();
 			break;
 
 		case TWO_POINT:
-			crossoverStrategy = new TwoPoint();
+			crossoverStrategy = new TwoPointCrossover();
 			break;
 		default:
 			throw new RuntimeException("The selected crossover strategy does not exists");

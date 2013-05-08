@@ -10,7 +10,7 @@ import es.unileon.rnag.cubiga.gen.Gen;
  * @author Adrian Casimiro Alvarez
  * @author Javier de Pedro Lopez
  */
-public class SinglePoint extends CrossoverStrategy{
+public class SinglePointCrossover extends CrossoverStrategy{
 
 	@Override
 	public CrossoverElement doCrossover(CrossoverElement crossoverElement) {
