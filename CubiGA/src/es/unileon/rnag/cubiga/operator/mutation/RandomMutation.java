@@ -1,4 +1,4 @@
-package es.unileon.rnag.cubiga.oprerator.mutation;
+package es.unileon.rnag.cubiga.operator.mutation;
 
 import java.util.Random;
 

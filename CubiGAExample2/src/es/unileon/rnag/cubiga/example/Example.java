@@ -8,8 +8,8 @@ import es.unileon.rnag.cubiga.operator.FitnessOperator;
 import es.unileon.rnag.cubiga.operator.GeneticStrategy;
 import es.unileon.rnag.cubiga.operator.StopOperator;
 import es.unileon.rnag.cubiga.operator.crossover.CrossoverFactory.CrossoverType;
+import es.unileon.rnag.cubiga.operator.mutation.MutationFactory.MutationType;
 import es.unileon.rnag.cubiga.operator.selection.SelectionFactory.SelectionType;
-import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory.MutationType;
 
 /**
  * Example of the CubiGA with BitVector

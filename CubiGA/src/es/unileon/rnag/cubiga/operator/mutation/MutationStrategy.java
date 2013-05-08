@@ -1,4 +1,4 @@
-package es.unileon.rnag.cubiga.oprerator.mutation;
+package es.unileon.rnag.cubiga.operator.mutation;
 
 import es.unileon.rnag.cubiga.chromosome.Chromosome;
 

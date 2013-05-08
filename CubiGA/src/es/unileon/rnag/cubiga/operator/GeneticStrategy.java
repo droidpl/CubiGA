@@ -5,12 +5,12 @@ import es.unileon.rnag.cubiga.operator.crossover.CrossoverElement;
 import es.unileon.rnag.cubiga.operator.crossover.CrossoverFactory;
 import es.unileon.rnag.cubiga.operator.crossover.CrossoverFactory.CrossoverType;
 import es.unileon.rnag.cubiga.operator.crossover.CrossoverStrategy;
+import es.unileon.rnag.cubiga.operator.mutation.MutationFactory;
+import es.unileon.rnag.cubiga.operator.mutation.MutationStrategy;
+import es.unileon.rnag.cubiga.operator.mutation.MutationFactory.MutationType;
 import es.unileon.rnag.cubiga.operator.selection.SelectionFactory;
 import es.unileon.rnag.cubiga.operator.selection.SelectionFactory.SelectionType;
 import es.unileon.rnag.cubiga.operator.selection.SelectionStrategy;
-import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory.MutationType;
-import es.unileon.rnag.cubiga.oprerator.mutation.MutationFactory;
-import es.unileon.rnag.cubiga.oprerator.mutation.MutationStrategy;
 
 /**
  * Manages all the strategies inside the genetic algorithm
