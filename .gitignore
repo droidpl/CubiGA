@@ -4,6 +4,7 @@
 .classpath
 .metadata
 bin
+dist
 *~
 
 # Package Files #
