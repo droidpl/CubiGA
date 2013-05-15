@@ -4,5 +4,5 @@ es.unileon.rnag.cubiga.datatypes
 es.unileon.rnag.cubiga.gen
 es.unileon.rnag.cubiga.operator
 es.unileon.rnag.cubiga.operator.crossover
+es.unileon.rnag.cubiga.operator.mutation
 es.unileon.rnag.cubiga.operator.selection
-es.unileon.rnag.cubiga.oprerator.mutation

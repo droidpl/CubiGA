@@ -19,8 +19,8 @@ import es.unileon.rnag.cubiga.operator.selection.SelectionFactory.SelectionType;
 public class Example {
 	private static final Double CROSSOVER_PROBABILITY = 0.7;
 	private static final Double MUTATION_PROBABILITY = 0.05;
-	private static final int POPULATION = 300;
-	private static final int NUMBER_OF_GENERATIONS = 80;
+	private static final int POPULATION = 80;
+	private static final int NUMBER_OF_GENERATIONS = 200;
 	
 	/**
 	 * Executes the genetic algorithm
@@ -33,7 +33,7 @@ public class Example {
 		//Create an instance of the GA
 		GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(geneticStrategy, operators, operators);
 		//Determine the data type
-		GeneticType geneticType = new BitVector(300);
+		GeneticType geneticType = new BitVector(200);
 		//Initialize the GA
 		geneticAlgorithm.initialize(POPULATION, geneticType, NUMBER_OF_GENERATIONS, CROSSOVER_PROBABILITY, MUTATION_PROBABILITY);
 		//Evolve it
